@@ -10,6 +10,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RecaptchaEnterpriseResponse {
     private String name;
+
     @NotNull
     private TokenProperties tokenProperties;
     private RiskAnalysis riskAnalysis;

@@ -57,7 +57,7 @@ public class LoginService {
         double scoreResult = recaptchaEnterpriseResponse.getRiskAnalysis().getScore();
 
         if (isTokenValid && scoreResult > 0.5) {
-            log.info("Success validated recaptcha enterprise");
+            log.info("Success validated recaptcha enterprise, score: {}", scoreResult);
             return;
         }
 
