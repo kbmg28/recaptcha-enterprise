@@ -8,6 +8,8 @@ import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
 
 import { environment } from './../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ApiModule, BASE_PATH } from './open-api';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,19 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     RecaptchaV3Module,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    ApiModule
   ],
   providers: [
     {
       provide: RECAPTCHA_V3_SITE_KEY,
       useValue: environment.recaptcha.siteKey,
     },
+    {
+      provide: BASE_PATH,
+      useValue: environment.API_BASE_PATH
+    }
   ],
   bootstrap: [AppComponent]
 })
