@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
 
 @Component({
@@ -7,11 +8,17 @@ import { ReCaptchaV3Service } from 'ng-recaptcha';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'recaptcha-enterprise-front';
+  loginForm = new FormGroup({
+    login: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+  });
 
   constructor(private recaptchaV3Service: ReCaptchaV3Service) {
 
   }
+
+  get login() {    return this.loginForm.get('login'); }
+  get password() {    return this.loginForm.get('password'); }
 
   public send(): void {
     this.recaptchaV3Service.execute('login')

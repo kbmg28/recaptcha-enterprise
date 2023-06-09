@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
 
 import { environment } from './../environments/environment';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { environment } from './../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RecaptchaV3Module
+    RecaptchaV3Module,
+    ReactiveFormsModule
   ],
   providers: [
     {

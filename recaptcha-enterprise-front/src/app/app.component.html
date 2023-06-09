@@ -1,1 +1,14 @@
-<button (click)="send()">click</button>
+<section class="login">
+  <form [formGroup]="loginForm" (ngSubmit)="send()">
+
+    <label for="login">Login: </label>
+    <input id="login" type="text" formControlName="login">
+
+    <label for="password">Password: </label>
+    <input id="password" type="password" formControlName="password">
+
+  </form>
+
+
+  <button [disabled]="!loginForm.valid" (click)="send()">Sign-in</button>
+</section>
